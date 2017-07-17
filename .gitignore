@@ -1,0 +1,8 @@
+# OS X system file
+.DS_Store
+# Intellij IDE project settings
+.idea
+
+node_modules
+npm-debug.log.*
+public/uploads/*

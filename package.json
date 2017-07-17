@@ -1,0 +1,18 @@
+{
+    "name": "nodejs-library",
+    "version": "0.0.0",
+    "private": true,
+    "engines": {
+        "node": ">= 7.6.0"
+    },
+    "scripts": {
+        "start": "nodemon ./server.js --ignore public/"
+    },
+    "dependencies": {
+        "express": "4.15.3",
+        "dotenv": "4.0.0",
+        "mongoose": "4.11.3",
+        "body-parser": "1.17.2"
+    },
+    "devDependencies": {}
+}
