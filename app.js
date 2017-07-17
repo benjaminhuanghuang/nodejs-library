@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 // app modules
+const helpers = require('./helpers');
 const routes = require('./routes/index');
 
 // create our Express app
@@ -19,6 +20,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));  //
+
+
+// Inject variables and function to templates
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  next();
+});
 
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/', routes);
