@@ -2,18 +2,25 @@ doctype html
 html
   head
     title= `${title} | ${h.siteName}`
+    link(rel='stylesheet', href='/dist/bootstrap.darkly.css')
     link(rel='stylesheet', href='/dist/style.css')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel="shortcut icon" type="image/png" href="/images/icons/favicon.ico")
     meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     block header
-      
+        .navbar.navbar-default navbar-fixed-top  
+            .container
 
-    block messages
-      
-    .content
-      block content
+    .container
+        block messages
+        
+        block content
 
+        block footer
+            footer.footter
+                p.text-muted 
+                    | Copyright 2017 by 
+                    a(href='https://github.com/benjaminhuanghuang') Benjamin
+                   
     block scripts
       
