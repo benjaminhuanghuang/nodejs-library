@@ -8,4 +8,4 @@ const fs = require('fs');
 // Dump is a handy debugging function to display data
 exports.dump = (obj) => JSON.stringify(obj, null, 2);
 
-exports.siteName = `Tech Resources`;
+exports.siteName = `Tech Library`;
