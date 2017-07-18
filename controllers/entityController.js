@@ -14,6 +14,13 @@ const multerOptions = {
         }
     }
 }
+/* 
+    Multer adds a body object and a file or files object to the request object. 
+    The body object contains the values of the text fields of the form, 
+    and the file or files object contains the files uploaded via the form.
+*/
+const uuid = require('uuid');
+const jimp = require('jimp');
 
 // GET display all entities
 exports.getEntities = async(req, res) => {
@@ -24,6 +31,28 @@ exports.getEntities = async(req, res) => {
         entities
     });
 };
+
+// Accept a single file with the name fieldname. 
+// The single file will be stored in req.file.
+// https://www.npmjs.com/package/multer
+exports.upload = multer(multerOptions).single('photo');
+
+exports.resize = async(req, res, next) => {
+    if (!req.file) {
+        next();
+        return;
+    }
+    //console.log(req.file);
+    const extension = req.file.mimetype.split('/')[1];
+    req.body.photo = `${uuid.v4()}.${extension}`;
+
+    //resize
+    const photo = await jimp.read(req.file.buffer);
+    await photo.resize(800, jimp.AUTO);
+    await photo.write(`./public/uploads/${req.body.photo}`)
+    // After written the photo to file system, keep going.
+    next();
+}
 
 // GET entity from for creating new one
 exports.addEntity = (req, res) => {
@@ -51,6 +80,7 @@ exports.getEntityForEditing = async(req, res) => {
     //  confirmOwner(store, req.user);
 
     // 3. Render out the edit form so the user can update their store
+    console.log(entity.publishDate);
     res.render('editEntity', {
         title: `Edit ${entity.name}`,
         entity
