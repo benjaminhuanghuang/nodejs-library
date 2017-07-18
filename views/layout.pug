@@ -33,10 +33,10 @@ html
                         li
                             a(href='/') Logout
     block messages
-        if locals.flashes
+        if flashes
             .inner.inner--flashes
                 .flash-messages
-                    - const categories = Object.keys(locals.flashes)
+                    - const categories = Object.keys(flashes)
                     each category in categories
                         each message in flashes[category]
                             .flash(class=`flash--${category}`)
