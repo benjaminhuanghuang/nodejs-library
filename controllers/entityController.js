@@ -57,7 +57,10 @@ exports.getEntityForEditing = async(req, res) => {
     });
 };
 
+// POST /entities/add/:id  because edit and add use the same edit form
 exports.updateEntity = async(req, res) => {
+    // The query executes immediately if callback is passed else a Query object is returned.
+    // http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate
     const entity = await Entity.findOneAndUpdate({
         _id: req.params.id
     }, req.body, {
