@@ -16,7 +16,11 @@
         next();
     });
 
-3. Add sass for the flash 
-
-3. Display flash message in layout.pug
+2. Add sass for the flash 
     
+3. Display flash message in layout.pug
+    req.flash('error', 'something happened.')
+    req.flash('info', 'something happened.')
+    req.flash('warning', 'something happened.')
+    req.flash('others', 'something happened.')
+    req.flash('unknown', 'something happened.')
