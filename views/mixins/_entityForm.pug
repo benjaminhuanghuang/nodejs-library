@@ -1,5 +1,6 @@
 mixin entityForm(entity={})
-    form(action=`/add-entity/${entity._id ||''}` method="POST")
+    //- This form used for adding and editing, the cation use same URL for them
+    form(action=`/entities/add/${entity._id ||''}` method="POST")
         .form-group
             label(for="name") Name
             input.form-control(type="text" name="name" value=entity.name)
@@ -9,11 +10,11 @@ mixin entityForm(entity={})
 
         .form-group
             label(for="author") Author
-            input.form-control(type="text" name="name" value=entity.author)
+            input.form-control(type="text" name="author" value=entity.author)
 
         .form-group
             label(for="publishDate") Publish Date
-            input.form-control(type="date" name="name" value=entity.publishDate || h.moment().format('YYYY-MM-DD'))
+            input.form-control(type="date" name="publishDate" value=entity.publishDate || h.moment().format('YYYY-MM-DD'))
         
         //- Image Upload
         .form-group

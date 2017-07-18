@@ -15,8 +15,12 @@ router.get('/', entityController.getEntities);
 router.get('/entities', entityController.getEntities);
 
 // Add entity
-router.get('/add-entity', entityController.addEntity);
-router.post('/add-entity', entityController.createEntity);
+router.get('/entities/add', entityController.addEntity);
+router.post('/entities/add', entityController.createEntity);
 
+// Edit
+router.get('/entities/edit/:id', entityController.getEntityForEditing);
+// To use same from for adding and editing, we ues same URL for those operation
+router.post('/entities/add/:id', entityController.updateEntity);
 
 module.exports = router;

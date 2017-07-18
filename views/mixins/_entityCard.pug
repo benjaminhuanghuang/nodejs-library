@@ -6,7 +6,7 @@ mixin entityCard(entity={})
                     a(href=`/test`)
                         != h.icon('heart')  
                 .entity__action.entity__action--edit
-                    a(href=`/test`)
+                    a(href=`/entities/edit/${entity._id}/`)
                         != h.icon('pencil')  
                 .entity__action.entity__action--count
                     a(href=`/test`)

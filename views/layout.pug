@@ -23,8 +23,8 @@ html
                     ul.nav.navbar-nav
                         li(class=(currentPath.startsWith('/entities') ? 'active' : ''))
                             a(href='/entities') Entities
-                        li(class=(currentPath.startsWith('/add-entity') ? 'active' : ''))
-                            a(href='/add-entity') Add
+                        li(class=(currentPath.startsWith('/entities/add') ? 'active' : ''))
+                            a(href='/entities/add') Add
                     ul.nav.navbar-nav.navbar-right
                         li
                             a(href='/') Login
@@ -38,7 +38,7 @@ html
         block content
 
     block footer
-        footer.navbar-fixed-bottom
+        footer.navbar-default.navbar-fixed-bottom
             .container
                 p.text-muted.text-right
                     | Copyright 2017 by 
