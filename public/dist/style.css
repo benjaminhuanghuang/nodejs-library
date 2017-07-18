@@ -53,6 +53,13 @@ p {
   font-size: 10rem;
   text-align: center; }
 
+.inner {
+  max-width: 900px;
+  margin: 0 auto; }
+  @media all and (max-width: 900px) {
+    .inner {
+      padding: 2rem; } }
+
 .entities {
   display: -webkit-box;
   display: -ms-flexbox;

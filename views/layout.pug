@@ -21,7 +21,7 @@ html
                 //- Collect the nav links, forms, and other content for toggling
                 .collapse.navbar-collapse
                     ul.nav.navbar-nav
-                        li(class=(currentPath.startsWith('/entities') ? 'active' : ''))
+                        li(class=(currentPath=='/entities' ? 'active' : ''))
                             a(href='/entities') Entities
                         li(class=(currentPath.startsWith('/entities/add') ? 'active' : ''))
                             a(href='/entities/add') Add

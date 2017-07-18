@@ -3,5 +3,6 @@ extends layout
 include mixins/_entityForm
  
 block content
-    h2 #{title}
-    +entityForm(entity)
+    .inner
+        h2 #{title}
+        +entityForm(entity)
