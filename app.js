@@ -24,8 +24,9 @@ app.use(bodyParser.urlencoded({ extended: true }));  //
 
 // Inject variables and function to templates
 app.use((req, res, next) => {
-  res.locals.h = helpers;
-  next();
+    res.locals.h = helpers;
+    res.locals.currentPath = req.path;
+    next();
 });
 
 // After allllll that above middleware, we finally handle our own routes!

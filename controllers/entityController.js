@@ -15,6 +15,12 @@ const multerOptions = {
     }
 }
 
+// GET display all entities
+exports.getEntities = async(req, res) => {
+    const entities = await Entity.find();
+
+    res.render('entities', { title: 'Entities', entities});
+};
 // GET entity from for creating new one
 exports.addEntity = (req, res) => {
     res.render('editEntity', {

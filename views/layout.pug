@@ -21,13 +21,10 @@ html
                 //- Collect the nav links, forms, and other content for toggling
                 .collapse.navbar-collapse
                     ul.nav.navbar-nav
-                        li.active
-                            a(href='/') Resorces
-                        li
-                            a(href='/') Add
-                        li
-                            a(href='/') Top
-
+                        li(class=(currentPath.startsWith('/entities') ? 'active' : ''))
+                            a(href='/entities') Entities
+                        li(class=(currentPath.startsWith('/add-entity') ? 'active' : ''))
+                            a(href='/add-entity') Add
                     ul.nav.navbar-nav.navbar-right
                         li
                             a(href='/') Login
