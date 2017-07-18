@@ -1,8 +1,18 @@
 mixin entityCard(entity={})
-    .card(style="width: 20rem;")
-        img.card-img-top(src=`/uploads/${entity.photo || 'entity-default.jpeg'}`, alt="")
-        .card-block
-            h4.card-title #{entity.name}
-            p.card-text #{entity.description}
-        .card-block 
-            a.card-lick Edit
+    .entity  
+        .entity__hero
+            .entity__actions
+                .entity__action.entity__action--heart
+                    a(href=`/test`)
+                        != h.icon('heart')  
+                .entity__action.entity__action--edit
+                    a(href=`/test`)
+                        != h.icon('pencil')  
+                .entity__action.entity__action--count
+                    a(href=`/test`)
+                        != h.icon('review')         
+            img(src=`/uploads/${entity.photo || 'entity-default.jpeg'}`)
+            h2.title
+                a(href=`/test`) #{entity.name}
+        .entity__details
+            p= entity.description.split(' ').slice(0,25).join(' ')   
