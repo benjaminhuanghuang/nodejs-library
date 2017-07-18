@@ -150,8 +150,6 @@ p {
     width: 100%;
     top: 0;
     right: 0;
-    background: -o-linear-gradient(45deg, #05b3d6 0%, rgba(5, 179, 214, 0) 70%), -o-linear-gradient(315deg, #0958ec 10%, rgba(9, 88, 236, 0) 80%), -o-linear-gradient(225deg, #d209ec 10%, rgba(210, 9, 236, 0) 80%), -o-linear-gradient(135deg, #05e129 100%, rgba(5, 225, 41, 0) 70%);
-    background: linear-gradient(45deg, #05b3d6 0%, rgba(5, 179, 214, 0) 70%), linear-gradient(135deg, #0958ec 10%, rgba(9, 88, 236, 0) 80%), linear-gradient(225deg, #d209ec 10%, rgba(210, 9, 236, 0) 80%), linear-gradient(315deg, #05e129 100%, rgba(5, 225, 41, 0) 70%);
     opacity: 0.6;
     z-index: 1;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%);
@@ -173,25 +171,5 @@ p {
   margin-top: -10rem;
   -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.15); }
-
-.single__map {
-  width: calc(100% + 6rem);
-  max-width: none;
-  margin-top: -3rem;
-  margin-left: -3rem; }
-
-.single__location {
-  margin: 0;
-  margin-top: -3rem;
-  margin-right: -5rem;
-  background: #303030;
-  color: white;
-  display: inline-block;
-  float: right;
-  position: relative;
-  padding: 1rem; }
-  @media all and (max-width: 850px) {
-    .single__location {
-      margin-right: 0; } }
 
 /*# sourceMappingURL=style.css.map*/
