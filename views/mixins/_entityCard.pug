@@ -1,5 +1,8 @@
 mixin entityCard(entity={})
-    ul
-        il entity.name
-        il entity.description
-        
+    .card(style="width: 20rem;")
+        img.card-img-top(src=`/uploads/${entity.photo || 'entity-default.jpeg'}`, alt="")
+        .card-block
+            h4.card-title #{entity.name}
+            p.card-text #{entity.description}
+        .card-block 
+            a.card-lick Edit
