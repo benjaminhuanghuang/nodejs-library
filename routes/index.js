@@ -4,7 +4,7 @@ const router = express.Router();
 // App controllers
 const entityController = require('../controllers/entityController');
 
-// Homepage
+// Test page
 router.get('/testing', (req, res) => {
   //res.send('Hey! It works!');
   res.render('index', {
@@ -30,5 +30,8 @@ router.post('/entities/add/:id',
   entityController.upload,
   entityController.resize,
   entityController.updateEntity);
+
+// Display single entity and reviews
+router.get('/entities/:slug', entityController.getEntityBySlug);
 
 module.exports = router;

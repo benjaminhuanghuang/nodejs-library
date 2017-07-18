@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    .single
+        .single__hero
+            img.single__image(src=`/uploads/${entity.photo || 'entity-default.jpeg'}`)
+            h2.title.title--single
+                a(href=`/entities/${entity.slug}`) #{entity.name}
+
+    .single__details.inner
+        p= entity.description
+
+        if entity.tags
+            ul.tags
+                each tag in entity.tags
+                    li.tag
+                        a.tag__link(href=`/tags/${tag}`)
+                            span.tag__text  ##{tag}

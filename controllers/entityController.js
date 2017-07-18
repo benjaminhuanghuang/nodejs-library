@@ -101,3 +101,17 @@ exports.updateEntity = async(req, res) => {
     //                         <a href="/stores/${store.slug}">View Store</a>`)
     res.redirect(`/entities`);
 };
+
+exports.getEntityBySlug = async(req, res, next) => {
+    //res.json(req.params)
+    const entity = await Entity.findOne({
+        slug: req.params.slug
+    }); // populate user data related to the store.
+
+    if (!entity)
+        return next(); // go to errorHandlers.notFound
+    res.render('entityDetail', {
+        title: entity.name,
+        entity
+    });
+};

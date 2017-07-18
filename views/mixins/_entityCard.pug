@@ -13,6 +13,6 @@ mixin entityCard(entity={})
                         != h.icon('review')         
             img(src=`/uploads/${entity.photo || 'entity-default.jpeg'}`)
             h2.title
-                a(href=`/test`) #{entity.name}
+                a(href=`/entities/${entity.slug}`) #{entity.name}
         .entity__details
             p= entity.description.split(' ').slice(0,25).join(' ')   
