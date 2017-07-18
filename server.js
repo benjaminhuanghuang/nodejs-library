@@ -20,7 +20,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 // import all of the models
-//require('./models/entity');
+require('./models/entity');
 
 // Start our app!
 const app = require('./app');
