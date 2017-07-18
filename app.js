@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash'); // The flash is a special area of the session used for storing messages. 
 
 // app modules
 const helpers = require('./helpers');
@@ -21,10 +24,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));  //
 
+// Use session
+app.use(session({
+  secret: process.env.SECRET,
+  key: process.env.KEY,
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+// use flash middleware, flash need session middleware
+app.use(flash());
 
 // Inject variables and function to templates
 app.use((req, res, next) => {
     res.locals.h = helpers;
+    res.locals.flashes = req.flash();
     res.locals.currentPath = req.path;
     next();
 });

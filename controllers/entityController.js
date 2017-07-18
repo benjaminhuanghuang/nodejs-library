@@ -80,7 +80,6 @@ exports.getEntityForEditing = async(req, res) => {
     //  confirmOwner(store, req.user);
 
     // 3. Render out the edit form so the user can update their store
-    console.log(entity.publishDate);
     res.render('editEntity', {
         title: `Edit ${entity.name}`,
         entity
@@ -97,8 +96,8 @@ exports.updateEntity = async(req, res) => {
         new: true, //return the new store instead of the old one
         runValidators: true
     }).exec();
-    // req.flash('success', `Successfully update <strong> ${store.name} <strong>. 
-    //                         <a href="/stores/${store.slug}">View Store</a>`)
+    req.flash('success', `Successfully update <strong> ${entity.name} <strong>. 
+                            <a href="/entities/${entity.slug}">View Details</a>`)
     res.redirect(`/entities`);
 };
 
