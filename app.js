@@ -8,7 +8,11 @@ const flash = require('connect-flash'); // The flash is a special area of the se
 
 // app modules
 const helpers = require('./helpers');
-const routes = require('./routes/index');
+
+// Routers
+const contentRoutes = require('./routes/contentRoutes');
+const userRoutes = require('./routes/userRoutes');
+const router = require('./routes/index');
 
 // create our Express app
 const app = express();
@@ -45,7 +49,9 @@ app.use((req, res, next) => {
 });
 
 // After allllll that above middleware, we finally handle our own routes!
-app.use('/', routes);
+app.use('/', router);
+app.use('/', contentRoutes);
+app.use('/', userRoutes);
 
 // done! we export it so we can start the site in start.js
 module.exports = app;
