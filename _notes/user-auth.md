@@ -11,8 +11,17 @@
 
 
 2. Create routes and controller
-    
-3. Create pug files for user manage
+    register
+    login
+    logout
+    rest password
+    modify account
 
+3. Create pug files for user manage
+    register
+    login
+    forgot
+    account
+    
 4. Modify layout.pug to and the link
 

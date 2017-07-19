@@ -4,16 +4,17 @@ block content
     .inner
         h2= title
         form.form(action="/register" method="POST")
-            label(for="name") Name
-            input(type="text" name="name")
-
-            label(for="email") Email
-            input(type="email" name="email")
+            .form-group
+                label(for="name") Name
+                input.form-control(type="text" name="name")
+            .form-group
+                label(for="email") Email
+                input.form-control(type="email" name="email")
+            .form-group
+                label(for="password") Password
+                input.form-control(type="password" name="password")
+            .form-group
+                label(for="password-confirm") Confirm Password
+                input.form-control(type="password" name="password-confirm")
             
-            label(for="password") Password
-            input(type="password" name="password")
-            
-            label(for="password-confirm") Confirm Password
-            input(type="password" name="password-confirm")
-            
-            input.button(type="submit" value="Register →")
+            button.btn.btn-primary.btn-lg.center-block(type="submit") Register
