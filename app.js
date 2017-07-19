@@ -18,6 +18,7 @@ const helpers = require('./helpers');
 // Routers
 const contentRoutes = require('./routes/contentRoutes');
 const userRoutes = require('./routes/userRoutes');
+const apiRoutes = require('./routes/apiRoutes');
 const router = require('./routes/index');
 
 // create our Express app
@@ -72,6 +73,8 @@ app.use((req, res, next) => {
 app.use('/', router);
 app.use('/', contentRoutes);
 app.use('/', userRoutes);
+app.use('/', apiRoutes);
+
 
 // done! we export it so we can start the site in start.js
 module.exports = app;

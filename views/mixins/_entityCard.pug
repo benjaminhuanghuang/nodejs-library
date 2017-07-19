@@ -4,10 +4,10 @@ mixin entityCard(entity={})
             .entity__actions
                 if user
                     .entity__action.entity__action--heart
-                        form.heart(method="POST" action=`entities/favorite/${entity._id}`)
-                            - const heartStrings = user.favorites.map(obj => obj.toString())
-                            - const heartClass = heartStrings.includes(entity._id.toString()) ? 'heart__button--hearted' : ''
-                            button.heart__button(type="submit" name="heart" class=heartClass)
+                        form.favorite(method="POST" action=`entities/favorite/${entity._id}`)
+                            - const entityStrings = user.favorites.map(obj => obj.toString())
+                            - const heartClass = entityStrings.includes(entity._id.toString()) ? 'favorite__button--hearted' : ''
+                            button.favorite__button(type="submit" name="heart" class=heartClass)
                             != h.icon('heart')  
                 if user && entity.postedBy == user.id
                     .entity__action.entity__action--edit

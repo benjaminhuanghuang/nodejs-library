@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'panama';
   src: url("/fonts/panama-bold-webfont.woff2") format("woff2"), url("/fonts/panama-bold-webfont.woff") format("woff");
@@ -249,5 +250,65 @@ p {
     background: linear-gradient(35deg, #f1e767 0%, #feb645 100%); }
   .flash p {
     margin: 0; }
+
+.favorite__button {
+  background: none;
+  border: 0;
+  outline: 0;
+  position: relative; }
+  .favorite__button:after {
+    content: '\2665\FE0F';
+    font-size: 20px;
+    position: absolute;
+    opacity: 0;
+    top: 0; }
+  .favorite__button svg {
+    width: 25px;
+    fill: white; }
+  .favorite__button--hearted svg {
+    fill: red; }
+  .favorite__button--float:after {
+    -webkit-animation: fly 2.5s 1 ease-out;
+            animation: fly 2.5s 1 ease-out; }
+
+@-webkit-keyframes fly {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    left: 0;
+    opacity: 1; }
+  20% {
+    left: 20px; }
+  40% {
+    left: -20px; }
+  60% {
+    left: 20px; }
+  80% {
+    left: -20px; }
+  100% {
+    -webkit-transform: translateY(-400px);
+            transform: translateY(-400px);
+    opacity: 0;
+    left: 20px; } }
+
+@keyframes fly {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    left: 0;
+    opacity: 1; }
+  20% {
+    left: 20px; }
+  40% {
+    left: -20px; }
+  60% {
+    left: 20px; }
+  80% {
+    left: -20px; }
+  100% {
+    -webkit-transform: translateY(-400px);
+            transform: translateY(-400px);
+    opacity: 0;
+    left: 20px; } }
 
 /*# sourceMappingURL=style.css.map*/
