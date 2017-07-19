@@ -37,7 +37,7 @@ exports.validateRegister = (req, res, next) => {
     req.checkBody('password-confirm', 'Confirmed Password cannot be blank!').notEmpty();
     req.checkBody('password-confirm', 'Your passwords do not match!').equals(req.body.password);
 
-    const errs = req.getValidationResult();
+    const errs = req.validationErrors();  // TODO... should be changed to req.getValidationResult()
 
     if (errs) {
         req.flash('error', errs.map(err => err.msg));
