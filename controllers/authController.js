@@ -3,6 +3,7 @@ const promisify = require('es6-promisify');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const mail = require('../handlers/mail');
+const crypto = require('crypto');
 
 // user the function in passport
 // Config passport in handlers/passport.js

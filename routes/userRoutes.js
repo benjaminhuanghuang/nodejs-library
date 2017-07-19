@@ -24,9 +24,9 @@ userRoutes.post('/login', authController.login);
 userRoutes.get('/logout', authController.logout);
 
 // reset password
-router.post('/account/forgot', authController.generateRestToken); //generate reset token
-router.get('/account/reset/:token', authController.reset); // show reset form
-router.post('/account/reset/:token',
+userRoutes.post('/account/forgot', authController.generateRestToken); //generate reset token
+userRoutes.get('/account/reset/:token', authController.reset); // show reset form
+userRoutes.post('/account/reset/:token',
     authController.confirmedPasswords,
     authController.updatePassword);
 
