@@ -9,6 +9,9 @@ const expressValidator = require('express-validator');
 const passport = require('passport');
 const promisify = require('es6-promisify');
 
+
+require('./handlers/passport');   // invoke the config
+
 // app modules
 const helpers = require('./helpers');
 

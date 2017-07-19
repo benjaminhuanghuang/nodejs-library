@@ -1,3 +1,6 @@
+// Config the passport to local
+// Invoked in app.js
+
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');

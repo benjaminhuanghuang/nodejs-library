@@ -1,11 +1,10 @@
 const passport = require('passport');
-const crypto = require('crypto');
-const promisify = require('es6-promisify');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 // user the function in passport
+// Config passport in handlers/passport.js
 exports.login = passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: 'Failed Login!',
