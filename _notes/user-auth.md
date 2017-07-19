@@ -8,7 +8,7 @@
     "md5": "2.2.1",
         For the gravater
     "mongoose-mongodb-errors":"~0.0.2"
-
+    express-validator : Exposes a bunch of methods for validating data. Used heavily on userController.validateRegister
 
 2. Create routes and controller
     register
@@ -31,7 +31,7 @@
 6. User login 
     passport middleware set user to req.user
     check req.user to change the UI for permission
-    
+
 7. Call user login after user register
 
 8. Logout

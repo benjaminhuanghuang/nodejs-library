@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash'); // The flash is a special area of the session used for storing messages. 
+const expressValidator = require('express-validator');
 
 // app modules
 const helpers = require('./helpers');
@@ -27,6 +28,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));  //
+
+// Exposes a bunch of methods for validating data. Used heavily on userController.validateRegister
+app.use(expressValidator());
 
 // Use session
 app.use(session({
