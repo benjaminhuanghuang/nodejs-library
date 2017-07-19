@@ -5,6 +5,7 @@ const promisify = require('es6-promisify');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
+// user the function in passport
 exports.login = passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: 'Failed Login!',

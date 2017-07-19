@@ -26,12 +26,15 @@ html
                         li(class=(currentPath.startsWith('/entities/add') ? 'active' : ''))
                             a(href='/entities/add') Add
                     ul.nav.navbar-nav.navbar-right
-                        li
-                            a(href='/login') Login
-                        li
-                            a(href='/register') Register
-                        li
-                            a(href='/logout') Logout
+                        if user
+                            li
+                                a(href='/logout') Logout
+                        else
+                            li
+                                a(href='/login') Login
+                            li
+                                a(href='/register') Register
+                            
     block messages
         if flashes
             .inner.inner--flashes

@@ -22,6 +22,17 @@
     login
     forgot
     account
-    
+
 4. Modify layout.pug to and the link
+
+
+5. User register 
+
+6. User login 
+    passport middleware set user to req.user
+    check req.user to change the UI for permission
+    
+7. Call user login after user register
+
+8. Logout
 

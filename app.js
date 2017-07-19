@@ -45,6 +45,7 @@ app.use((req, res, next) => {
     res.locals.h = helpers;
     res.locals.flashes = req.flash();
     res.locals.currentPath = req.path;
+    res.locals.user = req.user || null;   // passport middleware set user to req.user
     next();
 });
 
