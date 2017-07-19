@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Entity = mongoose.model('Entity');
+const User = mongoose.model('User');
 const multer = require('multer'); // for image uploading
 const multerOptions = {
     storage: multer.memoryStorage(),

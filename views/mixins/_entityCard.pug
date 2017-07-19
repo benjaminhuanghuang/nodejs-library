@@ -7,8 +7,8 @@ mixin entityCard(entity={})
                         form.favorite(method="POST" action=`entities/favorite/${entity._id}`)
                             - const entityStrings = user.favorites.map(obj => obj.toString())
                             - const heartClass = entityStrings.includes(entity._id.toString()) ? 'favorite__button--hearted' : ''
-                            button.favorite__button(type="submit" name="heart" class=heartClass)
-                            != h.icon('heart')  
+                            button.favorite__button(type="submit" name="heartButton" class=heartClass)
+                                != h.icon('heart')  
                 if user && entity.postedBy == user.id
                     .entity__action.entity__action--edit
                         a(href=`/entities/edit/${entity._id}/`)
