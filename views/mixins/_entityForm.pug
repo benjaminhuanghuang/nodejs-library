@@ -14,7 +14,7 @@ mixin entityForm(entity={})
 
         .form-group
             label(for="publishDate") Publish Date
-            input.form-control(type="date" name="publishDate" value=h.moment(entity.publishDate).utc().zone(0).format('YYYY-MM-DD')|| h.moment().format('YYYY-MM-DD'))
+            input.form-control(type="date" name="publishDate" value=h.moment(entity.publishDate).utcOffset(0).format('YYYY-MM-DD')|| h.moment().format('YYYY-MM-DD'))
         
         //- Image Upload
         .form-group

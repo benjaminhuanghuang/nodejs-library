@@ -63,7 +63,7 @@ exports.addEntity = (req, res) => {
 
 exports.createEntity = async(req, res) => {
     // Relationship between user and store
-    req.body.author = req.user._id;
+    req.body.postedBy = req.user._id;
 
     const entity = new Entity(req.body);
     await entity.save();
