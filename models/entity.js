@@ -23,11 +23,11 @@ const entitySchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    // postedBy: {
-    //     type: mongoose.Schema.ObjectId,
-    //     ref: 'User',
-    //     required: 'You must supply an poster'
-    // }
+    postedBy: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: 'You must supply an poster'
+    }
 });
 
 // Define indexes

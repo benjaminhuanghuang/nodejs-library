@@ -22,6 +22,11 @@ const userSchema = new Schema({
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date,
+  // for review
+  favorites: [{
+    type: mongoose.Schema.ObjectId,
+    ref: 'Entity'
+  }]
  });
 
 // Add virtual field to user. The virtual field is not saved in database.

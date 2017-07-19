@@ -2,12 +2,17 @@ mixin entityCard(entity={})
     .entity  
         .entity__hero
             .entity__actions
-                .entity__action.entity__action--heart
-                    a(href=`/test`)
-                        != h.icon('heart')  
-                .entity__action.entity__action--edit
-                    a(href=`/entities/edit/${entity._id}/`)
-                        != h.icon('pencil')  
+                if user
+                    .entity__action.entity__action--heart
+                        form.heart(method="POST" action=`entities/favorite/${entity._id}`)
+                            - const heartStrings = user.favorites.map(obj => obj.toString())
+                            - const heartClass = heartStrings.includes(entity._id.toString()) ? 'heart__button--hearted' : ''
+                            button.heart__button(type="submit" name="heart" class=heartClass)
+                            != h.icon('heart')  
+                if user && entity.postedBy == user.id
+                    .entity__action.entity__action--edit
+                        a(href=`/entities/edit/${entity._id}/`)
+                            != h.icon('pencil')  
                 .entity__action.entity__action--count
                     a(href=`/test`)
                         != h.icon('review')         

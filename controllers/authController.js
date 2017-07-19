@@ -102,3 +102,14 @@ exports.updatePassword = async(req, res) => {
     req.flash('success', 'Your password has been reset! You are now logged in!');
     res.redirect('/');
 };
+
+// Middleware for permission checking
+exports.isLoggedIn = (req, res, next) => {
+    // Using the function in passport middle ware
+    if (req.isAuthenticated()) {
+        next();
+        return;
+    }
+    req.flash('error', 'You must be logged in to do that');
+    res.redirect('/login');
+}

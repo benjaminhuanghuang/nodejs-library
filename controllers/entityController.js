@@ -62,6 +62,9 @@ exports.addEntity = (req, res) => {
 }
 
 exports.createEntity = async(req, res) => {
+    // Relationship between user and store
+    req.body.author = req.user._id;
+
     const entity = new Entity(req.body);
     await entity.save();
     //req.flash("success", `Successfully created ${store.name}. Care to leave a review?`); // type and message
@@ -113,4 +116,19 @@ exports.getEntityBySlug = async(req, res, next) => {
         title: entity.name,
         entity
     });
+};
+
+exports.addOrRemoveFavorite = async(req, res) => {
+    const favorites = req.user.favorites.map(obj => obj.toString());
+    // add or remove store to user.hearts
+    const operator = favorites.includes(req.params.id) ? '$pull' : '$addToSet';
+    const user = await User
+        .findByIdAndUpdate(req.user._id, {
+            [operator]: {
+                favorites: req.params.id
+            }
+        }, {
+            new: true
+        });
+    res.json(user);
 };

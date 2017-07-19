@@ -27,4 +27,7 @@ contentRoutes.post('/entities/add/:id',
 // Display single entity and reviews
 contentRoutes.get('/entities/:slug', entityController.getEntityBySlug);
 
+// Add entity to user's favorites
+contentRoutes.post('/entities/favorite/:id', entityController.addOrRemoveFavorite);
+
 module.exports = contentRoutes;
