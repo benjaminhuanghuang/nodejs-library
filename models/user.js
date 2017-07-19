@@ -20,14 +20,7 @@ const userSchema = new Schema({
     required: 'Please supply a name',
     trim: true
   },
-  resetPasswordToken: String,
-  resetPasswordExpires: Date,
-  // for review
-  hearts: [{
-    type: mongoose.Schema.ObjectId,
-    ref: 'Store'
-  }]
-});
+ });
 
 // Add virtual field to user. The virtual field is not saved in database.
 userSchema.virtual('gravatar').get(function () {
@@ -35,6 +28,7 @@ userSchema.virtual('gravatar').get(function () {
   return `http://gravatar.com/avatar/${hash}?200`;
 });
 
+// use the email as login field
 userSchema.plugin(passportLocalMongoose, {
   usernameField: 'email'
 });

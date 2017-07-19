@@ -1,6 +1,6 @@
 1. Create Uer model and import it in server.js
 
-    "passport": "0.3.2",
+    "passport":  authentication middleware for Node.js
     "passport-local": "1.0.0",
     "passport-local-mongoose": "4.0.0",
         For user auth

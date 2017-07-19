@@ -6,6 +6,8 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash'); // The flash is a special area of the session used for storing messages. 
 const expressValidator = require('express-validator');
+const passport = require('passport');
+const promisify = require('es6-promisify');
 
 // app modules
 const helpers = require('./helpers');
@@ -41,6 +43,10 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 
+// // Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
+
 // use flash middleware, flash need session middleware
 app.use(flash());
 
@@ -51,6 +57,12 @@ app.use((req, res, next) => {
     res.locals.currentPath = req.path;
     res.locals.user = req.user || null;   // passport middleware set user to req.user
     next();
+});
+
+// promisify some callback based APIs
+app.use((req, res, next) => {
+  req.login = promisify(req.login, req);
+  next();
 });
 
 // After allllll that above middleware, we finally handle our own routes!

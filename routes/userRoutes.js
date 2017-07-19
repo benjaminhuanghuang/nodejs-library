@@ -10,7 +10,7 @@ userRoutes.get('/register', userController.registerForm);
 // 1. validate register data
 // 2. register user
 // 3. log in user
-userRoutes.post('/register', 
+userRoutes.post('/register',
     userController.validateRegister,
     userController.register,
     authController.login);

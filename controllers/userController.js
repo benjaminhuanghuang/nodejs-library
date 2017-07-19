@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const promisify = require('es6-promisify');
 
 // Get Register form
 exports.registerForm = (req, res) => {
@@ -13,6 +14,10 @@ exports.register = async(req, res, next) => {
         email: req.body.email,
         name: req.body.name
     });
+    // register method was provided by passportLocalMongoose middleware
+    // the function use callback
+    // User.register(user, req,body.password, function(err, user){})
+    // promisify(function, object bind to the function) can covert it to a promise
     const register = promisify(User.register, User);
     await register(user, req.body.password);
     // res.send('it works');
@@ -32,7 +37,7 @@ exports.validateRegister = (req, res, next) => {
     req.checkBody('password-confirm', 'Confirmed Password cannot be blank!').notEmpty();
     req.checkBody('password-confirm', 'Your passwords do not match!').equals(req.body.password);
 
-    const errs = req.validationErrors();
+    const errs = req.getValidationResult();
 
     if (errs) {
         req.flash('error', errs.map(err => err.msg));
