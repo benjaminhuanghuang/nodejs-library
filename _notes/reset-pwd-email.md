@@ -1,4 +1,9 @@
-1. Config file for the email server
+1. Add filed to User schema for reset password
+    resetPasswordToken: String,
+    resetPasswordExpires: Date,
+
+2. Config file for the email server
+    use mailtrap.io as the mail server
 
 2. Email Handler
     const nodemailer = require('nodemailer');
