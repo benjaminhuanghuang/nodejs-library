@@ -12,4 +12,11 @@
     const htmlToText = require('html-to-text');
     const promisify = require('es6-promisify');
 
+    generate Html, insert css, convert text
+
+    
+    const html = pug.renderFile(`${__dirname}/../views/email/${filename}.pug`, options);
+    const inlined = juice(html);    //inline css
+    return inlined;
+
 3. Template and Styles
