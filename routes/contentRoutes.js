@@ -3,9 +3,13 @@ const contentRoutes = express.Router();
 
 // App controllers
 const entityController = require('../controllers/entityController');
+const {
+    catchErrors
+} = require('../handlers/errorHandlers');
+
 
 // Homepage
-contentRoutes.get('/', entityController.getEntities);
+contentRoutes.get('/', catchErrors(entityController.getEntities));
 contentRoutes.get('/entities', entityController.getEntities);
 
 // Add entity

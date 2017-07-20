@@ -4,6 +4,9 @@ const userRoutes = express.Router();
 // Import app controllers
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const {
+    catchErrors
+} = require('../handlers/errorHandlers');
 
 // Register
 userRoutes.get('/register', userController.registerForm);
