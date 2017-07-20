@@ -8,7 +8,7 @@ const flash = require('connect-flash'); // The flash is a special area of the se
 const expressValidator = require('express-validator');
 const passport = require('passport');
 const promisify = require('es6-promisify');
-
+const errorHandlers = require('./handlers/errorHandlers');
 
 require('./handlers/passport');   // invoke the config
 
@@ -75,6 +75,20 @@ app.use('/', contentRoutes);
 app.use('/', userRoutes);
 app.use('/', apiRoutes);
 
+// If that above routes didnt work, we 404 them and forward to error handler
+app.use(errorHandlers.notFound);
+
+// One of our error handlers will see if these errors are just validation errors
+app.use(errorHandlers.flashValidationErrors);
+
+// Otherwise this was a really bad error we didn't expect! Shoot eh
+if (app.get('env') === 'development') {
+  /* Development Error Handler - Prints stack trace */
+  app.use(errorHandlers.developmentErrors);
+}
+
+// production error handler
+app.use(errorHandlers.productionErrors);
 
 // done! we export it so we can start the site in start.js
 module.exports = app;
