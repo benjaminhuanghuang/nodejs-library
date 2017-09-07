@@ -1,11 +1,11 @@
-1. Add filed to User schema for reset password
+## 1. Add filed to User schema for reset password
     resetPasswordToken: String,
     resetPasswordExpires: Date,
 
-2. Config file for the email server
+## 2. Config file for the email server
     use mailtrap.io as the mail server
 
-2. Email Handler
+## 3. Email Handler
     const nodemailer = require('nodemailer');
     const pug = require('pug');
     const juice = require('juice');  //inline css
@@ -19,4 +19,4 @@
     const inlined = juice(html);    //inline css
     return inlined;
 
-3. Template and Styles
+## 4. Template and Styles
