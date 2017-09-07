@@ -1,23 +1,35 @@
 # Library App 
-    This is a technical resource management app, built with 
-    Node.js + Express + Pug + MongoDB + Mongoose + Sass
+    Using Node.js + Express + Pug + MongoDB + Mongoose + Sass
     
     Deployed on Heroku
         https://nodejs-library.herokuapp.com/
 
-## Skills involved in this project
+## reference
+    https://learnnode.com/
+    
+## Best practices
+- Pug view engine and layout view
+  - Bootstrap
 
-### Bootstrap
+- Sass Design
 
-### Pug view engine and layout view
+- Webpack
+  - sass
+  - ES6
 
-### Scss and webpack
+- helpers module
+  - error handler
 
-### ES6 and webpack
+- Flash message
 
-### helpers module
+- MongoDB
+  - Pagination
+  - Advanced Aggregations
 
-### Flash message
+- Authentication
 
-### Multiple promise with async-await
+- Multiple promise with async-await
 
+- Upload image
+
+- AJAX REST api calling
