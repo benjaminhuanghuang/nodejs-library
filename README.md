@@ -27,18 +27,17 @@
   - ES6
 
 - User management
+  - Register + Login + Logout + Passport
   - Reset password + email template
-
+  - Authentication
 
 - MongoDB
   - model design
   - Pagination
   - Advanced Aggregations
 
-- Authentication
-
 - Multiple promise with async-await
 
-- Upload image
+- Image resize and uploading
 
 - AJAX REST api calling
