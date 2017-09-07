@@ -13,11 +13,12 @@
     - error handler
     - mail
     - passport
-    
+
   - middleware
 
 - Pug(Jade) view engine and layout view
   - Bootstrap
+  - Flash message
 
 - Sass Design
 
@@ -25,9 +26,9 @@
   - sass
   - ES6
 
+- User management
+  - Reset password + email template
 
-
-- Flash message
 
 - MongoDB
   - model design

@@ -5,3 +5,5 @@
 
   app.set('view engine', 'pug');
   ```
+
+## Flash message
