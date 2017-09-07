@@ -8,7 +8,15 @@
     https://learnnode.com/
     
 ## Best practices
-- Pug view engine and layout view
+- Node.js design pattern
+  - helpers module
+    - error handler
+    - mail
+    - passport
+    
+  - middleware
+
+- Pug(Jade) view engine and layout view
   - Bootstrap
 
 - Sass Design
@@ -17,12 +25,12 @@
   - sass
   - ES6
 
-- helpers module
-  - error handler
+
 
 - Flash message
 
 - MongoDB
+  - model design
   - Pagination
   - Advanced Aggregations
 

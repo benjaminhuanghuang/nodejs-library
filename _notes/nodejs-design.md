@@ -1,3 +1,14 @@
+## models - controller - routes pattern
+  
+
+## Async-wait and error handling pattern in Node.js
+ - async-await (Node.js > 7.0)
+
+
+    
+## Multiple query promise
+    storeController.js
+    
 ## 08 - Core Concept - Middleware and Error Handling
 
 ## 11 - Usering Async Await
